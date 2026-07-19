@@ -1,21 +1,773 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Tokyo After Disco — official music website."
+  >
+
   <title>Tokyo After Disco</title>
+
+  <style>
+    :root {
+      --background: #07070d;
+      --panel: rgba(18, 16, 29, 0.9);
+      --panel-light: rgba(31, 24, 48, 0.82);
+      --text: #ffffff;
+      --muted: #b8b2c5;
+      --purple: #b968ff;
+      --pink: #ff63b5;
+      --green: #1ed760;
+      --red: #ff334f;
+      --orange: #ff7700;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(154, 72, 255, 0.16),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 90% 40%,
+          rgba(255, 72, 167, 0.11),
+          transparent 30%
+        ),
+        var(--background);
+
+      color: var(--text);
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 760px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 5, 11, 0.98) 0%,
+          rgba(5, 5, 11, 0.78) 40%,
+          rgba(5, 5, 11, 0.30) 72%,
+          rgba(5, 5, 11, 0.15) 100%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(7, 7, 13, 0.04) 35%,
+          var(--background) 100%
+        ),
+        url("https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=2000&q=85");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 70% 32%,
+          rgba(176, 72, 255, 0.25),
+          transparent 32%
+        );
+
+      pointer-events: none;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+      padding: 26px 0;
+
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 750;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #ded9e8;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    /* HERO CONTENT */
+
+    .hero-content {
+      width: min(1120px, 92%);
+      margin: auto;
+
+      position: relative;
+      z-index: 2;
+
+      padding: 80px 0 150px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+
+      color: #d8baff;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin: 0;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(64px, 10vw, 120px);
+      font-weight: 500;
+      line-height: 0.88;
+      letter-spacing: -0.06em;
+    }
+
+    .tagline {
+      max-width: 570px;
+      margin: 30px 0 0;
+
+      color: #d4cfe0;
+      font-size: clamp(18px, 2.2vw, 24px);
+    }
+
+    .hero-buttons {
+      margin-top: 38px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .button {
+      min-height: 48px;
+      padding: 0 20px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+
+      background: rgba(10, 8, 17, 0.68);
+      backdrop-filter: blur(14px);
+
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 650;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(32, 24, 51, 0.95);
+    }
+
+    .primary-button {
+      background:
+        linear-gradient(
+          90deg,
+          var(--purple),
+          var(--pink)
+        );
+
+      border-color: transparent;
+    }
+
+    /* MAIN */
+
+    main {
+      margin-top: -68px;
+      padding-bottom: 45px;
+
+      position: relative;
+      z-index: 5;
+    }
+
+    .section {
+      margin-bottom: 28px;
+      padding: 28px;
+
+      border: 1px solid var(--border);
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(28, 21, 45, 0.94),
+          rgba(11, 10, 19, 0.94)
+        );
+
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .section-heading {
+      margin-bottom: 22px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 27px;
+      letter-spacing: -0.03em;
+    }
+
+    .accent-line {
+      width: 48px;
+      height: 3px;
+      margin-top: 10px;
+
+      border-radius: 99px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--purple),
+          var(--pink)
+        );
+    }
+
+    .small-link {
+      color: #d9d2e6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .small-link:hover {
+      color: #ffffff;
+    }
+
+    /* SPOTIFY */
+
+    .spotify-frame {
+      width: 100%;
+      height: 352px;
+
+      display: block;
+
+      border: 0;
+      border-radius: 18px;
+
+      background: #111111;
+    }
+
+    /* YOUTUBE */
+
+    .youtube-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 280px;
+
+      display: block;
+
+      border: 0;
+      border-radius: 18px;
+
+      background: #000000;
+    }
+
+    /* PLATFORM CARDS */
+
+    .platform-grid {
+      margin-bottom: 28px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .platform-card {
+      min-height: 180px;
+      padding: 23px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      border: 1px solid var(--border);
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(28, 23, 43, 0.94),
+          rgba(12, 11, 20, 0.94)
+        );
+
+      color: #ffffff;
+      text-decoration: none;
+
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25);
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .platform-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.32);
+    }
+
+    .platform-icon {
+      width: 45px;
+      height: 45px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+
+      font-size: 21px;
+      font-weight: 750;
+    }
+
+    .platform-card strong {
+      display: block;
+      margin-top: 22px;
+
+      font-size: 21px;
+    }
+
+    .platform-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .spotify-card {
+      border-color: rgba(30, 215, 96, 0.42);
+    }
+
+    .apple-card {
+      border-color: rgba(255, 99, 181, 0.42);
+    }
+
+    .soundcloud-card {
+      border-color: rgba(255, 119, 0, 0.50);
+    }
+
+    .youtube-card {
+      border-color: rgba(255, 51, 79, 0.50);
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+    }
+
+    .about-box {
+      padding: 26px;
+
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      background: rgba(13, 12, 22, 0.7);
+    }
+
+    .about-box p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 25px 20px 55px;
+
+      color: #827c91;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .platform-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        min-height: 700px;
+        background-position: 60% center;
+      }
+
+      nav {
+        padding: 20px 0;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a:nth-child(3) {
+        display: none;
+      }
+
+      .hero-content {
+        padding: 80px 0 130px;
+      }
+
+      h1 {
+        max-width: 94%;
+        font-size: clamp(60px, 18vw, 88px);
+      }
+
+      .tagline {
+        font-size: 18px;
+      }
+
+      main {
+        margin-top: -50px;
+      }
+
+      .section {
+        padding: 18px;
+        border-radius: 19px;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .platform-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .platform-card {
+        min-height: 145px;
+      }
+
+      .youtube-frame {
+        min-height: 220px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>Tokyo After Disco</h1>
+  <header class="hero" id="home">
 
-  <p>Welcome to my official music page.</p>
+    <nav>
+      <a class="logo" href="#home">
+        Tokyo After Disco
+      </a>
 
-  <p>
-    <a href="https://open.spotify.com/artist/67F5fwpBUrEY0nCNgp2Zpp" target="_blank">
-      🎵 Listen on Spotify
-    </a>
-  </p>
+      <div class="nav-links">
+        <a href="#music">Music</a>
+        <a href="#video">YouTube</a>
+        <a href="#about">About</a>
+        <a href="#links">Links</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+
+      <p class="eyebrow">
+        Official Music Website
+      </p>
+
+      <h1>
+        Tokyo<br>
+        After Disco
+      </h1>
+
+      <p class="tagline">
+        Music for the city after midnight.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          class="button primary-button"
+          href="https://open.spotify.com/artist/67F5fwpBUrEY0nCNgp2Zpp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Listen on Spotify ↗
+        </a>
+
+        <a
+          class="button"
+          href="https://youtube.com/channel/UCVY6sR46J28Edh1OdF-Bplw"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Watch on YouTube ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="container">
+
+    <!-- SPOTIFY -->
+
+    <section class="section" id="music">
+
+      <div class="section-heading">
+
+        <div>
+          <h2>Listen on Spotify</h2>
+          <div class="accent-line"></div>
+        </div>
+
+        <a
+          class="small-link"
+          href="https://open.spotify.com/artist/67F5fwpBUrEY0nCNgp2Zpp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Spotify ↗
+        </a>
+
+      </div>
+
+      <iframe
+        class="spotify-frame"
+        src="https://open.spotify.com/embed/artist/67F5fwpBUrEY0nCNgp2Zpp?utm_source=generator&theme=0"
+        title="Tokyo After Disco on Spotify"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+
+    </section>
+
+    <!-- YOUTUBE -->
+
+    <section class="section" id="video">
+
+      <div class="section-heading">
+
+        <div>
+          <h2>YouTube</h2>
+          <div class="accent-line"></div>
+        </div>
+
+        <a
+          class="small-link"
+          href="https://youtube.com/channel/UCVY6sR46J28Edh1OdF-Bplw"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit channel ↗
+        </a>
+
+      </div>
+
+      <iframe
+        class="youtube-frame"
+        src="https://www.youtube.com/embed/videoseries?list=UUVY6sR46J28Edh1OdF-Bplw"
+        title="Tokyo After Disco YouTube uploads"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+
+    </section>
+
+    <!-- MUSIC PLATFORM LINKS -->
+
+    <section class="platform-grid" id="links">
+
+      <a
+        class="platform-card spotify-card"
+        href="https://open.spotify.com/artist/67F5fwpBUrEY0nCNgp2Zpp"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="platform-icon">S</div>
+
+        <div>
+          <strong>Spotify</strong>
+          <span>Listen on Spotify ↗</span>
+        </div>
+      </a>
+
+      <a
+        class="platform-card apple-card"
+        href="https://music.apple.com/jp/artist/tokyo-after-disco/1809280702"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="platform-icon">♪</div>
+
+        <div>
+          <strong>Apple Music</strong>
+          <span>Listen on Apple Music ↗</span>
+        </div>
+      </a>
+
+      <a
+        class="platform-card soundcloud-card"
+        href="https://on.soundcloud.com/PHbNadGo7tg1x8YIDQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="platform-icon">☁</div>
+
+        <div>
+          <strong>SoundCloud</strong>
+          <span>Listen on SoundCloud ↗</span>
+        </div>
+      </a>
+
+      <a
+        class="platform-card youtube-card"
+        href="https://youtube.com/channel/UCVY6sR46J28Edh1OdF-Bplw"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="platform-icon">▶</div>
+
+        <div>
+          <strong>YouTube</strong>
+          <span>Watch on YouTube ↗</span>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="section" id="about">
+
+      <div class="about-grid">
+
+        <div class="about-box">
+
+          <h2>About</h2>
+          <div class="accent-line"></div>
+
+          <p>
+            Tokyo After Disco is an independent music project
+            blending nocturnal atmosphere, city-pop textures,
+            electronic music and modern Tokyo sound.
+          </p>
+
+        </div>
+
+        <div class="about-box">
+
+          <h2>Follow</h2>
+          <div class="accent-line"></div>
+
+          <p>
+            Follow Tokyo After Disco on Spotify, YouTube,
+            Apple Music and SoundCloud for new music and videos.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Tokyo After Disco. All rights reserved.
+  </footer>
 
 </body>
 </html>
