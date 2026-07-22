@@ -18,8 +18,6 @@
   <style>
     :root {
       --background: #07070d;
-      --panel: rgba(18, 16, 29, 0.9);
-      --panel-light: rgba(31, 24, 48, 0.82);
       --text: #ffffff;
       --muted: #b8b2c5;
       --purple: #b968ff;
@@ -41,6 +39,7 @@
 
     body {
       margin: 0;
+
       background:
         radial-gradient(
           circle at 15% 10%,
@@ -76,13 +75,268 @@
       margin: 0 auto;
     }
 
+    /* TOP FEATURED MUSIC */
+
+    .featured-wrapper {
+      width: min(1180px, 96%);
+      margin: 10px auto 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .featured-card {
+      position: relative;
+      min-height: 235px;
+      padding: 34px 42px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 7px;
+
+      color: #ffffff;
+      text-decoration: none;
+
+      box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.5);
+
+      box-shadow:
+        0 26px 65px rgba(0, 0, 0, 0.62),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    /* MUSIC FOR SLEEP */
+
+    .sleep-card {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3, 19, 49, 0.98),
+          rgba(7, 33, 76, 0.82) 52%,
+          rgba(8, 12, 36, 0.78)
+        ),
+        radial-gradient(
+          circle at 75% 22%,
+          rgba(91, 129, 255, 0.32),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #061638,
+          #031027
+        );
+    }
+
+    .sleep-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 10% 70%,
+          rgba(76, 116, 255, 0.18),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(255, 255, 255, 0.1),
+          transparent 18%
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.015) 0,
+          rgba(255, 255, 255, 0.015) 1px,
+          transparent 1px,
+          transparent 5px
+        );
+
+      pointer-events: none;
+    }
+
+    .sleep-card::after {
+      content: "☾";
+      position: absolute;
+      top: 22px;
+      right: 18%;
+
+      color: #fff4d2;
+      font-size: 48px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.45);
+    }
+
+    .sleep-title {
+      position: relative;
+      z-index: 2;
+
+      display: block;
+
+      font-family:
+        "Courier New",
+        Courier,
+        monospace;
+
+      font-size: clamp(39px, 6vw, 68px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+
+      color: #ffffff;
+
+      text-shadow:
+        4px 0 0 rgba(84, 226, 255, 0.86),
+        0 0 14px rgba(103, 225, 255, 0.65);
+    }
+
+    .sleep-japanese {
+      position: relative;
+      z-index: 2;
+
+      display: block;
+      margin-top: 20px;
+
+      color: #78eeff;
+      font-size: clamp(19px, 3vw, 32px);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+
+      text-shadow:
+        0 0 12px rgba(71, 224, 255, 0.55);
+    }
+
+    /* FREESTYLE RAPPERS */
+
+    .freestyle-card {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(13, 0, 29, 0.98),
+          rgba(34, 0, 62, 0.82) 50%,
+          rgba(14, 1, 28, 0.62)
+        ),
+        radial-gradient(
+          circle at 80% 38%,
+          rgba(135, 40, 255, 0.48),
+          transparent 32%
+        ),
+        linear-gradient(
+          145deg,
+          #100019,
+          #260044,
+          #09000f
+        );
+    }
+
+    .freestyle-card::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: 4%;
+      top: -45px;
+
+      border: 2px solid rgba(186, 91, 255, 0.45);
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 40px rgba(151, 47, 255, 0.58),
+        inset 0 0 30px rgba(112, 28, 255, 0.25);
+    }
+
+    .freestyle-card::after {
+      content: "🎙";
+      position: absolute;
+      right: 11%;
+      top: 43px;
+
+      font-size: 100px;
+      opacity: 0.34;
+
+      filter: drop-shadow(
+        0 0 18px rgba(189, 82, 255, 0.68)
+      );
+    }
+
+    .freestyle-title {
+      position: relative;
+      z-index: 2;
+
+      display: block;
+
+      max-width: 650px;
+
+      font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+      font-size: clamp(46px, 7vw, 86px);
+      font-style: italic;
+      font-weight: 600;
+      line-height: 0.76;
+      letter-spacing: -0.05em;
+
+      color: #b968ff;
+
+      transform: rotate(-4deg);
+
+      text-shadow:
+        0 0 9px rgba(217, 142, 255, 0.9),
+        0 0 24px rgba(138, 42, 255, 0.7),
+        4px 6px 0 rgba(39, 0, 67, 0.85);
+    }
+
+    .featured-link {
+      position: relative;
+      z-index: 3;
+
+      width: fit-content;
+      margin-top: 28px;
+      padding: 10px 22px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(109, 232, 255, 0.85);
+      border-radius: 12px;
+
+      background: rgba(0, 0, 0, 0.3);
+
+      color: #80edff;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .purple-link {
+      color: #f0bcff;
+      border-color: rgba(210, 95, 255, 0.82);
+    }
+
     /* HERO */
 
     .hero {
       min-height: 760px;
       position: relative;
+
       display: flex;
       flex-direction: column;
+
       overflow: hidden;
 
       background:
@@ -90,7 +344,7 @@
           90deg,
           rgba(5, 5, 11, 0.98) 0%,
           rgba(5, 5, 11, 0.78) 40%,
-          rgba(5, 5, 11, 0.30) 72%,
+          rgba(5, 5, 11, 0.3) 72%,
           rgba(5, 5, 11, 0.15) 100%
         ),
         linear-gradient(
@@ -152,6 +406,7 @@
       color: #ded9e8;
       text-decoration: none;
       font-size: 14px;
+
       transition: color 0.2s ease;
     }
 
@@ -164,17 +419,16 @@
     .hero-content {
       width: min(1120px, 92%);
       margin: auto;
+      padding: 80px 0 150px;
 
       position: relative;
       z-index: 2;
-
-      padding: 80px 0 150px;
     }
 
     .eyebrow {
       margin: 0 0 18px;
 
-      color: #d8baff;
+      color: #ff8bd2;
       font-size: 12px;
       font-weight: 750;
       letter-spacing: 0.2em;
@@ -341,10 +595,11 @@
 
     .youtube-frame {
       width: 100%;
-      aspect-ratio: 16 / 9;
       min-height: 280px;
 
       display: block;
+
+      aspect-ratio: 16 / 9;
 
       border: 0;
       border-radius: 18px;
@@ -412,7 +667,6 @@
     .platform-card strong {
       display: block;
       margin-top: 22px;
-
       font-size: 21px;
     }
 
@@ -430,18 +684,18 @@
     }
 
     .soundcloud-card {
-      border-color: rgba(255, 119, 0, 0.50);
+      border-color: rgba(255, 119, 0, 0.5);
     }
 
     .youtube-card {
-      border-color: rgba(255, 51, 79, 0.50);
+      border-color: rgba(255, 51, 79, 0.5);
     }
 
     /* ABOUT */
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
@@ -469,7 +723,7 @@
       font-size: 14px;
     }
 
-    /* MOBILE */
+    /* TABLET */
 
     @media (max-width: 900px) {
       .platform-grid {
@@ -481,7 +735,50 @@
       }
     }
 
+    /* MOBILE */
+
     @media (max-width: 650px) {
+      .featured-wrapper {
+        width: calc(100% - 18px);
+        margin-top: 8px;
+      }
+
+      .featured-card {
+        min-height: 210px;
+        padding: 26px 20px;
+      }
+
+      .sleep-title {
+        font-size: clamp(31px, 10vw, 46px);
+      }
+
+      .sleep-japanese {
+        font-size: clamp(17px, 5vw, 23px);
+      }
+
+      .sleep-card::after {
+        right: 8%;
+        top: 18px;
+        font-size: 36px;
+      }
+
+      .freestyle-title {
+        max-width: 80%;
+        font-size: clamp(41px, 12vw, 59px);
+      }
+
+      .freestyle-card::after {
+        right: 2%;
+        top: 55px;
+        font-size: 73px;
+      }
+
+      .featured-link {
+        margin-top: 25px;
+        padding: 9px 15px;
+        font-size: 13px;
+      }
+
       .hero {
         min-height: 700px;
         background-position: 60% center;
@@ -542,6 +839,51 @@
 </head>
 
 <body>
+
+  <!-- TOP MUSIC LINKS -->
+
+  <section class="featured-wrapper">
+
+    <a
+      class="featured-card sleep-card"
+      href="https://music.youtube.com/channel/UCLvKGI83F90bbmhEkVeonlQ?si=UAdl2dkvcoqW_T7A"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Listen to Music for Sleep on YouTube Music"
+    >
+      <span class="sleep-title">
+        MUSIC FOR SLEEP
+      </span>
+
+      <span class="sleep-japanese">
+        ✦ 睡眠用BGM はじめました 🍧
+      </span>
+
+      <span class="featured-link">
+        Listen on YouTube Music ↗
+      </span>
+    </a>
+
+    <a
+      class="featured-card freestyle-card"
+      href="https://music.youtube.com/channel/UCTW_LZ-d5uhYu8_gO5knBtA?si=_SuWYScA2sH4t_dP"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Listen to Music for Freestyle Rappers on YouTube Music"
+    >
+      <span class="freestyle-title">
+        Music for<br>
+        Freestyle Rappers
+      </span>
+
+      <span class="featured-link purple-link">
+        Listen on YouTube Music ↗
+      </span>
+    </a>
+
+  </section>
+
+  <!-- HERO -->
 
   <header class="hero" id="home">
 
