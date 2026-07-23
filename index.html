@@ -80,6 +80,7 @@
     .featured-wrapper {
       width: min(1180px, 96%);
       margin: 10px auto 16px;
+
       display: grid;
       gap: 10px;
     }
@@ -118,6 +119,116 @@
       box-shadow:
         0 26px 65px rgba(0, 0, 0, 0.62),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    /* NEW SPOTIFY RELEASE */
+
+    .spotify-release-card {
+      min-height: 260px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4, 35, 19, 0.98),
+          rgba(8, 70, 34, 0.88) 52%,
+          rgba(3, 20, 12, 0.86)
+        ),
+        radial-gradient(
+          circle at 82% 35%,
+          rgba(30, 215, 96, 0.42),
+          transparent 34%
+        ),
+        linear-gradient(
+          145deg,
+          #03150b,
+          #07552a,
+          #020b06
+        );
+    }
+
+    .spotify-release-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.018) 0,
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 1px,
+          transparent 6px
+        );
+
+      pointer-events: none;
+    }
+
+    .spotify-release-card::after {
+      content: "♫";
+      position: absolute;
+      right: 9%;
+      top: 34px;
+
+      color: var(--green);
+      font-size: 125px;
+      font-weight: 900;
+      opacity: 0.25;
+
+      text-shadow:
+        0 0 28px rgba(30, 215, 96, 0.75);
+    }
+
+    .spotify-release-label {
+      position: relative;
+      z-index: 2;
+
+      display: block;
+      margin-bottom: 12px;
+
+      color: #79f7a5;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .spotify-release-title {
+      position: relative;
+      z-index: 2;
+
+      display: block;
+      max-width: 720px;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      color: #ffffff;
+      font-size: clamp(43px, 7vw, 82px);
+      font-weight: 600;
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+
+      text-shadow:
+        0 0 20px rgba(30, 215, 96, 0.3);
+    }
+
+    .spotify-release-artist {
+      position: relative;
+      z-index: 2;
+
+      display: block;
+      margin-top: 16px;
+
+      color: #c9f8d9;
+      font-size: clamp(17px, 2.5vw, 23px);
+      font-weight: 600;
+    }
+
+    .spotify-release-link {
+      color: #c5ffd8;
+      border-color: rgba(30, 215, 96, 0.85);
     }
 
     /* MUSIC FOR SLEEP */
@@ -277,7 +388,6 @@
       z-index: 2;
 
       display: block;
-
       max-width: 650px;
 
       font-family:
@@ -748,6 +858,17 @@
         padding: 26px 20px;
       }
 
+      .spotify-release-card::after {
+        right: 2%;
+        top: 55px;
+        font-size: 78px;
+      }
+
+      .spotify-release-title {
+        max-width: 85%;
+        font-size: clamp(38px, 12vw, 58px);
+      }
+
       .sleep-title {
         font-size: clamp(31px, 10vw, 46px);
       }
@@ -844,6 +965,34 @@
 
   <section class="featured-wrapper">
 
+    <!-- FEATURED SPOTIFY RELEASE -->
+
+    <a
+      class="featured-card spotify-release-card"
+      href="https://open.spotify.com/album/2dK3DIrO6EMEFpBCRFT7Ej"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Listen to Shout and Twist on Spotify"
+    >
+      <span class="spotify-release-label">
+        Featured Release · Spotify
+      </span>
+
+      <span class="spotify-release-title">
+        Shout and Twist
+      </span>
+
+      <span class="spotify-release-artist">
+        Tokyo After Disco
+      </span>
+
+      <span class="featured-link spotify-release-link">
+        Listen on Spotify ↗
+      </span>
+    </a>
+
+    <!-- MUSIC FOR SLEEP -->
+
     <a
       class="featured-card sleep-card"
       href="https://music.youtube.com/channel/UCLvKGI83F90bbmhEkVeonlQ?si=UAdl2dkvcoqW_T7A"
@@ -863,6 +1012,8 @@
         Listen on YouTube Music ↗
       </span>
     </a>
+
+    <!-- MUSIC FOR FREESTYLE RAPPERS -->
 
     <a
       class="featured-card freestyle-card"
