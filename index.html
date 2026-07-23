@@ -85,6 +85,30 @@
       gap: 10px;
     }
 
+    /* SPOTIFY PLAYERS */
+
+    .spotify-player-wrapper {
+      width: 100%;
+      margin: 0;
+    }
+
+    .spotify-player {
+      width: 100%;
+      height: 352px;
+
+      display: block;
+
+      border: 0;
+      border-radius: 16px;
+
+      background: #121212;
+
+      box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.5);
+    }
+
+    /* FEATURED CARDS */
+
     .featured-card {
       position: relative;
       min-height: 235px;
@@ -119,138 +143,6 @@
       box-shadow:
         0 26px 65px rgba(0, 0, 0, 0.62),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    /* SHOUT AND TWIST CARD */
-
-    .spotify-release-card {
-      min-height: 260px;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(4, 35, 19, 0.98),
-          rgba(8, 70, 34, 0.88) 52%,
-          rgba(3, 20, 12, 0.86)
-        ),
-        radial-gradient(
-          circle at 82% 35%,
-          rgba(30, 215, 96, 0.42),
-          transparent 34%
-        ),
-        linear-gradient(
-          145deg,
-          #03150b,
-          #07552a,
-          #020b06
-        );
-    }
-
-    .spotify-release-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-
-      background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.018) 0,
-          rgba(255, 255, 255, 0.018) 1px,
-          transparent 1px,
-          transparent 6px
-        );
-
-      pointer-events: none;
-    }
-
-    .spotify-release-card::after {
-      content: "♫";
-      position: absolute;
-      right: 9%;
-      top: 34px;
-
-      color: var(--green);
-      font-size: 125px;
-      font-weight: 900;
-      opacity: 0.25;
-
-      text-shadow:
-        0 0 28px rgba(30, 215, 96, 0.75);
-    }
-
-    .spotify-release-label {
-      position: relative;
-      z-index: 2;
-
-      display: block;
-      margin-bottom: 12px;
-
-      color: #79f7a5;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .spotify-release-title {
-      position: relative;
-      z-index: 2;
-
-      display: block;
-      max-width: 720px;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      color: #ffffff;
-      font-size: clamp(43px, 7vw, 82px);
-      font-weight: 600;
-      line-height: 0.95;
-      letter-spacing: -0.045em;
-
-      text-shadow:
-        0 0 20px rgba(30, 215, 96, 0.3);
-    }
-
-    .spotify-release-artist {
-      position: relative;
-      z-index: 2;
-
-      display: block;
-      margin-top: 16px;
-
-      color: #c9f8d9;
-      font-size: clamp(17px, 2.5vw, 23px);
-      font-weight: 600;
-    }
-
-    .spotify-release-link {
-      color: #c5ffd8;
-      border-color: rgba(30, 215, 96, 0.85);
-    }
-
-    /* SPOTIFY TRACK PLAYER */
-
-    .spotify-track-wrapper {
-      width: 100%;
-      margin: 0;
-    }
-
-    .spotify-track-player {
-      width: 100%;
-      height: 352px;
-
-      display: block;
-
-      border: 0;
-      border-radius: 16px;
-
-      background: #121212;
-
-      box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.5);
     }
 
     /* MUSIC FOR SLEEP */
@@ -310,7 +202,9 @@
 
       color: #fff4d2;
       font-size: 48px;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.45);
+
+      text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.45);
     }
 
     .sleep-title {
@@ -378,8 +272,10 @@
     .freestyle-card::before {
       content: "";
       position: absolute;
+
       width: 170px;
       height: 170px;
+
       right: 4%;
       top: -45px;
 
@@ -394,15 +290,17 @@
     .freestyle-card::after {
       content: "🎙";
       position: absolute;
+
       right: 11%;
       top: 43px;
 
       font-size: 100px;
       opacity: 0.34;
 
-      filter: drop-shadow(
-        0 0 18px rgba(189, 82, 255, 0.68)
-      );
+      filter:
+        drop-shadow(
+          0 0 18px rgba(189, 82, 255, 0.68)
+        );
     }
 
     .freestyle-title {
@@ -770,7 +668,8 @@
       color: #ffffff;
       text-decoration: none;
 
-      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25);
+      box-shadow:
+        0 16px 45px rgba(0, 0, 0, 0.25);
 
       transition:
         transform 0.2s ease,
@@ -875,25 +774,14 @@
         margin-top: 8px;
       }
 
+      .spotify-player {
+        height: 352px;
+        border-radius: 12px;
+      }
+
       .featured-card {
         min-height: 210px;
         padding: 26px 20px;
-      }
-
-      .spotify-release-card::after {
-        right: 2%;
-        top: 55px;
-        font-size: 78px;
-      }
-
-      .spotify-release-title {
-        max-width: 85%;
-        font-size: clamp(38px, 12vw, 58px);
-      }
-
-      .spotify-track-player {
-        height: 352px;
-        border-radius: 12px;
       }
 
       .sleep-title {
@@ -988,49 +876,35 @@
 
 <body>
 
-  <!-- TOP MUSIC LINKS -->
+  <!-- TOP MUSIC -->
 
   <section class="featured-wrapper">
 
-    <!-- 1. SHOUT AND TWIST -->
+    <!-- 1. SHOUT AND TWIST SPOTIFY PLAYER -->
 
-    <a
-      class="featured-card spotify-release-card"
-      href="https://open.spotify.com/album/2dK3DIrO6EMEFpBCRFT7Ej"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Listen to Shout and Twist on Spotify"
-    >
-      <span class="spotify-release-label">
-        Featured Release · Spotify
-      </span>
-
-      <span class="spotify-release-title">
-        Shout and Twist
-      </span>
-
-      <span class="spotify-release-artist">
-        Tokyo After Disco
-      </span>
-
-      <span class="featured-link spotify-release-link">
-        Listen on Spotify ↗
-      </span>
-    </a>
-
-    <!-- SPOTIFY TRACK PLAYER BETWEEN 1 AND 2 -->
-
-    <section class="spotify-track-wrapper">
+    <div class="spotify-player-wrapper">
       <iframe
-        class="spotify-track-player"
+        class="spotify-player"
+        src="https://open.spotify.com/embed/album/2dK3DIrO6EMEFpBCRFT7Ej?utm_source=generator&theme=0"
+        title="Shout and Twist on Spotify"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <!-- 2. SPOTIFY TRACK PLAYER -->
+
+    <div class="spotify-player-wrapper">
+      <iframe
+        class="spotify-player"
         src="https://open.spotify.com/embed/track/4dVpBMdLFGqhb4uVctwPMh?utm_source=generator&theme=0"
         title="Tokyo After Disco Spotify track"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
       ></iframe>
-    </section>
+    </div>
 
-    <!-- 2. MUSIC FOR SLEEP -->
+    <!-- 3. MUSIC FOR SLEEP -->
 
     <a
       class="featured-card sleep-card"
@@ -1052,7 +926,7 @@
       </span>
     </a>
 
-    <!-- 3. MUSIC FOR FREESTYLE RAPPERS -->
+    <!-- 4. MUSIC FOR FREESTYLE RAPPERS -->
 
     <a
       class="featured-card freestyle-card"
